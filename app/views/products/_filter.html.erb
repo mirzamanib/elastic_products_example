@@ -3,28 +3,25 @@
 
   <hr />
 
-  <%= form_tag do |f| %>
-    <h3 class="display-4">Filter</h3>
+  <%= form_tag do  %>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1"  style="width:100px">Search</span>
       </div>
       <%= text_field_tag('search', params[:search] , placeholder: 'Search for a product', class: "form-control")  %>
     </div>
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="input-group mb-3">
 
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01" style="width:100px">Price</label>
           </div>
           <%= select_tag "operator", options_for_select([ ['Compare', nil], ['Greater Than', '>'], ['Equal To', '='], ['Less Than', '<'] ], params[:operator] ), { class: "custom-select" }  %>
         </div>
-
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-5">
         <div class="input-group mb-3">
-
           <div class="input-group-prepend">
             <span class="input-group-text">$</span>
           </div>
@@ -33,12 +30,10 @@
             <span class="input-group-text">.00</span>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="input-group mb-3">
-
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01" style="width:100px">Country</label>
       </div>
@@ -47,16 +42,14 @@
 
     <hr />
 
-    <h3 class="display-4">Sort</h3>
-
     <div class="input-group mb-3">
-
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01" style="width:100px">Sort By</label>
       </div>
       <%= select_tag "sort", options_for_select([ ['Relevance', nil], ['Newest', 'newest'], ['Most Expensive', 'most_expensive'], ['Least Expensive', 'least_expensive'] ] , params[:sort]  ), { class: "custom-select" }  %>
     </div>
 
+    <%= link_to 'Clear', '/', class: "btn btn-warning btn-lg", style: { inline: true}  %>
     <%= submit_tag('Search', class: "btn btn-primary btn-lg") %>
   <% end %>
 </div>

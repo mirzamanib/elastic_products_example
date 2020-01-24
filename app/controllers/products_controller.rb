@@ -7,6 +7,14 @@ class ProductsController < ApplicationController
     render :index
   end
 
+  def show
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.js
+      format.yaml
+    end
+  end
+
   private
 
   def filter_products

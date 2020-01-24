@@ -1,0 +1,3 @@
+$('#productModalLabel').html("<%= escape_javascript (@product.title) %>");
+$('#modal-body').html("<%= escape_javascript (render partial: 'complete_product', locals: { product: @product}) %>");
+$('#productModal').modal();

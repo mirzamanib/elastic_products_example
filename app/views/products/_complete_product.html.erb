@@ -1,0 +1,9 @@
+<div class="text-center">
+  <table class="table table-bordered table-striped">
+    <tr><td>price</td><td><%= product.price %>.00 $</td></tr>
+    <tr><td>description</td><td><%= product.description %></td></tr>
+    <tr><td>tags</td><td><%= product.tags %></td></tr>
+    <tr><td>country</td><td><%= product.country %></td></tr>
+    <tr><td>created</td><td><%= product.created_at.strftime('%FT%T') %></td></tr>
+  </table>
+</div>
