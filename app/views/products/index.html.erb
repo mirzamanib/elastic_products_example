@@ -1,18 +1,26 @@
 <div class="container">
-  <table class="table table-striped  table-dark table-bordered table-hover table-responsive">
-    <thead class="thead-light">
-      <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>price</th>
-        <th>created_at</th>
-        <th>tags</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <%= render partial: 'product', locals: { product: product } %>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-sm-4 mt-3">
+      <%= render 'filter' %>
+    </div>
+    <div class="col-sm-8 mt-3">
+      <table class="table table-striped table-dark table-bordered table-hover table-responsive">
+        <thead class="thead-light">
+        <tr>
+          <th>title</th>
+          <th>price</th>
+          <th>tags</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @products.each do |product| %>
+          <%= render partial: 'product', locals: { product: product } %>
+        <% end %>
+        </tbody>
+      </table>
+        <%= link_to_prev_page @products, '<' %>
+      Page
+      <%= link_to_next_page @products, '>' %>
+    </div>
+  </div>
 </div>
