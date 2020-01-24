@@ -33,7 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '4.0.0.beta3'
   gem 'rubocop', '~> 0.58.2', require: false
   gem 'rubocop-rspec'
   gem 'shoulda-matchers', '~> 3.1'

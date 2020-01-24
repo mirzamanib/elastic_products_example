@@ -10,5 +10,5 @@ ActiveRecord::Migration.say_with_time 'Products' do
   products_hash = JSON.parse(products_file)
   products_hash.each { |h| Product.create(h) }
   puts "#{products_hash.size} Products Created."
-  puts "#{Product.count}"
+  puts Product.count.to_s
 end
