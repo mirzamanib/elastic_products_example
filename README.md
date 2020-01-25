@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Full text search, Filter and Sort with Ruby on Rails. Using Elastic Search, Bootstrap, RSpec and Capybara.
 
 * Ruby version
+  
+  2.5.1
 
-* System dependencies
+* System dependencies 
+
+  elasticsearch, chromedriver, postgres
 
 * Configuration
 
-* Database creation
-
-* Database initialization
+  rake db:create
+ 
+  rake db:migrate
+  
+  rake db:seed
+  
+  rails s -p 3000 -b 0.0.0.0
 
 * How to run the test suite
 
+  rspec
+
 * Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
