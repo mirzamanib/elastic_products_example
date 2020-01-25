@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
       @products = @products.where(arel_table[:price].eq(params[:price])) if params[:operator] == '='
       @products = @products.where(arel_table[:price].lt(params[:price])) if params[:operator] == '<'
     end
-    @products = @products.where(arel_table[:country].eq(params[:country])) if params[:country].present?
+    @products = @products.where(country: params[:country]) if params[:country].present?
   end
 
   def sort_products

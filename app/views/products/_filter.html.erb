@@ -33,11 +33,15 @@
       </div>
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01" style="width:100px">Country</label>
+    <div class="form-check text-lg-left">
+      <div class="row">
+        <% Product.distinct.pluck(:country).each do |country| %>
+          <span class="col-lg-6">
+            <%= check_box_tag 'country[]', country, params[:country].include?(country) %>
+            <%= country %>
+          </span>
+        <% end %>
       </div>
-      <%= select_tag "country", options_for_select(Product.distinct.pluck(:country).prepend(['Choose...', nil]),  params[:country] ), { class: "custom-select" }  %>
     </div>
 
     <hr />

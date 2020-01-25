@@ -18,9 +18,9 @@ class Product < ApplicationRecord
   def self.search(query)
     __elasticsearch__.search(
       query: {
-        multi_match: {
+        query_string: {
           type: 'phrase',
-          query: query,
+          query: "*#{query}*",
           fields: ['title^2', 'description', 'tags']
         }
       }
