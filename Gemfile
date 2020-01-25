@@ -34,11 +34,14 @@ gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', tag: 'v7.0.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'pry'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '4.0.0.beta3'
   gem 'rubocop', '~> 0.58.2', require: false
   gem 'rubocop-rspec'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
   gem 'webmock'

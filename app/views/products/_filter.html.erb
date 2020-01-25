@@ -37,7 +37,7 @@
       <div class="row">
         <% Product.distinct.pluck(:country).each do |country| %>
           <span class="col-lg-6">
-            <%= check_box_tag 'country[]', country, params[:country].include?(country) %>
+            <%= check_box_tag 'country[]', country, params[:country]&.include?(country) %>
             <%= country %>
           </span>
         <% end %>
