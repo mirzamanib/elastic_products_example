@@ -8,7 +8,7 @@ Full text search, Filter and Sort with Ruby on Rails. Using Elastic Search, Boot
 
 * System dependencies 
 
-  elasticsearch, chromedriver, postgres
+  elasticsearch version 7, chromedriver, postgres
 
 * Configuration
 
