@@ -120,5 +120,29 @@ RSpec.describe ProductsController, type: :controller do
         expect(assigns[:products].map(&:id)).to eq(Product.search('Oil').records.first(10).map(&:id))
       end
     end
+
+    describe 'search for Pastels' do
+      it 'finds products with Pastels' do
+        params = {
+            search: 'Pastels'
+        }
+
+        get :index, params: params
+
+        expect(assigns[:products].map(&:id)).to eq(Product.search('Pastels').records.first(10).map(&:id))
+      end
+    end
+
+    describe 'search for oi' do
+      it 'finds all products with oi on every field' do
+        params = {
+            search: 'oi'
+        }
+
+        get :index, params: params
+
+        expect(assigns[:products].map(&:title).sort).to eq(["Oil Pastels, Set Of 24 Oil Pastels", "Natural turquoise studs earrings", "Boho Moon bag", "Valentines Day Sweetheart Bath Bomb", "Passionfruit and Guava Bath Bomb, Bath Fizzy"].sort)
+      end
+    end
   end
 end

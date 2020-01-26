@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
     filter_products
     sort_products
     @products = @products.page(params[:page] || 1).per(params[:per] || 10)
@@ -18,6 +17,7 @@ class ProductsController < ApplicationController
   private
 
   def filter_products
+    @products = Product.all
     arel_table = Product.arel_table
     @products = Product.search(params[:search]).records if params[:search].present?
     if params[:price].present? && params[:operator]

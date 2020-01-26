@@ -15,6 +15,23 @@ class Product < ApplicationRecord
     end
   end
 
+  def as_indexed_json(options={})
+    self.as_json(only: [:id, :title, :description, :tags])
+  end
+
+
+  after_commit on: [:create] do
+    __elasticsearch__.index_document
+  end
+
+  after_commit on: [:update] do
+      __elasticsearch__.update_document
+  end
+
+  after_commit on: [:destroy] do
+    __elasticsearch__.delete_document
+  end
+
   def self.search(query)
     __elasticsearch__.search(
       query: {
@@ -42,3 +59,4 @@ Product.__elasticsearch__.client.indices.create \
 
 # Index all article records from the DB to Elasticsearch
 Product.import
+Product.__elasticsearch__.refresh_index!
